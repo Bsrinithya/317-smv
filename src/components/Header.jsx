@@ -21,13 +21,13 @@ function Header({ currentUser, setPage, handleLogout, cartCount, search, setSear
       <nav>
         {currentUser ? (
           <>
-            {/* NEW ADDRESS BUTTON */}
             <button onClick={() => setPage("address")}>Address</button>
-
             <button onClick={() => setPage("feedback")}>Feedback</button>
 
-            <button onClick={handleLogout}>Logout</button>
+            {/* NEW CAMERA BUTTON */}
+            <button onClick={() => setPage("camera")}>Camera</button>
 
+            <button onClick={handleLogout}>Logout</button>
             <div className="cart">🛒 {cartCount}</div>
           </>
         ) : (

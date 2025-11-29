@@ -4,24 +4,25 @@ import Dashboard from "./components/Dashboard";
 import ProductCard from "./components/ProductCard";
 import Cart from "./components/Cart";
 import Feedback from "./components/Feedback";
-import Address from "./components/Address";   // <-- Address included
+import Address from "./components/Address";
+import CameraCapture from "./components/CameraCapture";
 
 import "./App.css";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-  const [page, setPage] = useState("signup"); 
+  const [page, setPage] = useState("signup");
   const [cart, setCart] = useState([]);
   const [search, setSearch] = useState("");
 
   const products = [
     { id: 1, name: "Maheshwari Silk Saree", price: 1200, img: "cotton.png" },
     { id: 2, name: "Banarasi Cotton Saree", price: 950, img: "Ikat dress.png" },
-    { id: 3, name: "Unique handloom stiched shirt", price: 2200, img: "Shirt.png" },
+    { id: 3, name: "Handloom Shirt", price: 2200, img: "Shirt.png" },
     { id: 4, name: "Handwoven Dhoti", price: 850, img: "Threads.png" },
     { id: 5, name: "Ikat Dress Material", price: 1500, img: "Threads.png" },
-    { id: 6, name: "Kalamkari Cotton Fabric", price: 700, img: "Ikat dress.png" },
+    { id: 6, name: "Kalamkari Fabric", price: 700, img: "Ikat dress.png" },
   ];
 
   const handleSignup = (email, password) => {
@@ -121,9 +122,8 @@ function App() {
       )}
 
       {page === "feedback" && <Feedback />}
-
-      {/* NEW ADDRESS PAGE */}
       {page === "address" && <Address />}
+      {page === "camera" && <CameraCapture />}
     </div>
   );
 }
