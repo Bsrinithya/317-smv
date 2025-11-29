@@ -4,19 +4,21 @@ import Dashboard from "./components/Dashboard";
 import ProductCard from "./components/ProductCard";
 import Cart from "./components/Cart";
 import Feedback from "./components/Feedback";
+import Address from "./components/Address";   // ⬅ NEW IMPORT
+
 import "./App.css";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-  const [page, setPage] = useState("signup"); // signup, login, dashboard, feedback
+  const [page, setPage] = useState("signup"); 
   const [cart, setCart] = useState([]);
   const [search, setSearch] = useState("");
 
   const products = [
     { id: 1, name: "Maheshwari Silk Saree", price: 1200, img: "cotton.png" },
     { id: 2, name: "Banarasi Cotton Saree", price: 950, img: "Ikat dress.png" },
-    { id: 3, name: "Kanchipuram Silk Saree", price: 2200, img: "Shirt.png" },
+    { id: 3, name: "Unique handloom stiched shirt", price: 2200, img: "Shirt.png" },
     { id: 4, name: "Handwoven Dhoti", price: 850, img: "Threads.png" },
     { id: 5, name: "Ikat Dress Material", price: 1500, img: "Threads.png" },
     { id: 6, name: "Kalamkari Cotton Fabric", price: 700, img: "Ikat dress.png" },
@@ -48,16 +50,19 @@ function App() {
 
   const addToCart = (product) => setCart([...cart, product]);
   const removeFromCart = (id) => setCart(cart.filter((p) => p.id !== id));
+
   const filteredProducts = products.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  // 🟥 LOGIN / SIGNUP
   if (!currentUser) {
     return (
       <>
         {page === "signup" ? (
           <div className="card" style={{ maxWidth: "500px", padding: "40px 30px", margin: "50px auto" }}>
             <h2 style={{ fontSize: "28px", marginBottom: "20px" }}>Signup</h2>
+
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -67,53 +72,27 @@ function App() {
                 if (!success) alert("Email already registered!");
               }}
             >
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                required
-                style={{
-                  width: "90%",
-                  padding: "16px 18px",
-                  fontSize: "16px",
-                  marginBottom: "20px",
-                  borderRadius: "10px",
-                  border: "1px solid #ccc",
-                }}
+              <input type="email" name="email" placeholder="Enter your email" required
+                style={{ width: "90%", padding: "16px", marginBottom: "20px", borderRadius: "10px" }}
               />
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                required
-                style={{
-                  width: "90%",
-                  padding: "16px 18px",
-                  fontSize: "16px",
-                  marginBottom: "20px",
-                  borderRadius: "10px",
-                  border: "1px solid #ccc",
-                }}
+
+              <input type="password" name="password" placeholder="Enter your password" required
+                style={{ width: "90%", padding: "16px", marginBottom: "20px", borderRadius: "10px" }}
               />
+
               <button
                 type="submit"
                 style={{
-                  width: "95%",
-                  padding: "20px",
-                  fontSize: "16px",
-                  borderRadius: "10px",
-                  backgroundColor: "#8b0000",
-                  color: "#fff",
-                  border: "none",
-                  cursor: "pointer",
+                  width: "95%", padding: "20px", backgroundColor: "#8b0000",
+                  color: "#fff", borderRadius: "10px", cursor: "pointer"
                 }}
               >
                 Signup
               </button>
             </form>
-            <p
-              onClick={() => setPage("login")}
-              style={{ marginTop: "20px", cursor: "pointer", color: "#333", fontWeight: "500" }}
+
+            <p onClick={() => setPage("login")}
+              style={{ marginTop: "20px", cursor: "pointer" }}
             >
               Already have an account? Login
             </p>
@@ -130,53 +109,27 @@ function App() {
                 if (!success) alert("Invalid email or password!");
               }}
             >
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                required
-                style={{
-                  width: "90%",
-                  padding: "16px 18px",
-                  fontSize: "16px",
-                  marginBottom: "20px",
-                  borderRadius: "10px",
-                  border: "1px solid #ccc",
-                }}
+              <input type="email" name="email" placeholder="Enter your email" required
+                style={{ width: "90%", padding: "16px", marginBottom: "20px", borderRadius: "10px" }}
               />
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter your password"
-                required
-                style={{
-                  width: "90%",
-                  padding: "16px 18px",
-                  fontSize: "16px",
-                  marginBottom: "20px",
-                  borderRadius: "10px",
-                  border: "1px solid #ccc",
-                }}
+
+              <input type="password" name="password" placeholder="Enter your password" required
+                style={{ width: "90%", padding: "16px", marginBottom: "20px", borderRadius: "10px" }}
               />
+
               <button
                 type="submit"
                 style={{
-                  width: "95%",
-                  padding: "20px",
-                  fontSize: "16px",
-                  borderRadius: "10px",
-                  backgroundColor: "#8b0000",
-                  color: "#fff",
-                  border: "none",
-                  cursor: "pointer",
+                  width: "95%", padding: "20px", backgroundColor: "#8b0000",
+                  color: "#fff", borderRadius: "10px", cursor: "pointer"
                 }}
               >
                 Login
               </button>
             </form>
-            <p
-              onClick={() => setPage("signup")}
-              style={{ marginTop: "20px", cursor: "pointer", color: "#333", fontWeight: "500" }}
+
+            <p onClick={() => setPage("signup")}
+              style={{ marginTop: "20px", cursor: "pointer" }}
             >
               Don't have an account? Signup
             </p>
@@ -186,6 +139,7 @@ function App() {
     );
   }
 
+  // 🟩 AFTER LOGIN
   return (
     <div>
       <Header
@@ -210,6 +164,9 @@ function App() {
       )}
 
       {page === "feedback" && <Feedback />}
+
+      {/* 🟦 NEW ADDRESS PAGE */}
+      {page === "address" && <Address />}
     </div>
   );
 }

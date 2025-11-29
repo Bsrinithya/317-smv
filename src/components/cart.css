@@ -2,7 +2,7 @@
   max-width: 800px;
   margin: 30px auto;
   padding: 15px;
-  background-color: greenyellow;
+  background-color: rgb(255, 242, 227);
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
@@ -11,13 +11,13 @@
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid  greenyellow;
+  border-bottom: 1px solid  rgb(255, 242, 227);
 }
 
 .cart-item button {
   background-color: #ff4d4d;
   border: black;
-  color: greenyellow;
+  color: rgb(255, 242, 227);
   padding: 4px 10px;
   border-radius: 5px;
   cursor: pointer;

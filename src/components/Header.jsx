@@ -5,6 +5,7 @@ function Header({ currentUser, setPage, handleLogout, cartCount, search, setSear
   return (
     <header className="header">
       <h1 className="logo" onClick={() => setPage("dashboard")}>🧵 Handloom Haven</h1>
+
       {currentUser && (
         <input
           type="text"
@@ -14,11 +15,17 @@ function Header({ currentUser, setPage, handleLogout, cartCount, search, setSear
           onChange={(e) => setSearch(e.target.value)}
         />
       )}
+
       <nav>
         {currentUser ? (
           <>
+            {/* NEW ADDRESS BUTTON */}
+            <button onClick={() => setPage("address")}>Address</button>
+
             <button onClick={() => setPage("feedback")}>Feedback</button>
+
             <button onClick={handleLogout}>Logout</button>
+
             <div className="cart">🛒 {cartCount}</div>
           </>
         ) : (
