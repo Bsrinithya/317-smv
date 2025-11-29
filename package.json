@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage:": "https://sravanthirumala.github.io/handloomfabrics/",
+  "homepage:": "https://sravanthirumala.github.io/handloom-part-2006/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

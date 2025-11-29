@@ -14,12 +14,12 @@ function App() {
   const [search, setSearch] = useState("");
 
   const products = [
-    { id: 1, name: "Maheshwari Silk Saree", price: 1200, img: "/cotton.png" },
-    { id: 2, name: "Banarasi Cotton Saree", price: 950, img: "/Ikat dress.png" },
-    { id: 3, name: "Kanchipuram Silk Saree", price: 2200, img: "/Shirt.png" },
-    { id: 4, name: "Handwoven Dhoti", price: 850, img: "/Threads.png" },
-    { id: 5, name: "Ikat Dress Material", price: 1500, img: "/Threads.png" },
-    { id: 6, name: "Kalamkari Cotton Fabric", price: 700, img: "/Ikat dress.png" },
+    { id: 1, name: "Maheshwari Silk Saree", price: 1200, img: "cotton.png" },
+    { id: 2, name: "Banarasi Cotton Saree", price: 950, img: "Ikat dress.png" },
+    { id: 3, name: "Kanchipuram Silk Saree", price: 2200, img: "Shirt.png" },
+    { id: 4, name: "Handwoven Dhoti", price: 850, img: "Threads.png" },
+    { id: 5, name: "Ikat Dress Material", price: 1500, img: "Threads.png" },
+    { id: 6, name: "Kalamkari Cotton Fabric", price: 700, img: "Ikat dress.png" },
   ];
 
   // Signup
