@@ -4,7 +4,9 @@ import "./Header.css";
 function Header({ currentUser, setPage, handleLogout, cartCount, search, setSearch }) {
   return (
     <header className="header">
-      <h1 className="logo" onClick={() => setPage("dashboard")}>🧵 Handloom Haven</h1>
+      <h1 className="logo" onClick={() => setPage("dashboard")}>
+        🧵 Handloom Haven
+      </h1>
 
       {currentUser && (
         <input

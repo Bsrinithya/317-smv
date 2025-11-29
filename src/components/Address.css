@@ -25,7 +25,7 @@
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #b9b9b9;
-    background-color: #f3f3f3;
+    background-color: #141414;
     font-size: 15px;
     outline: none;
     transition: 0.3s;
@@ -33,7 +33,7 @@
   
   .address-form input:focus {
     border-color: #8b2f2f;
-    background-color: #fff;
+    background-color: #1b1919;
   }
   
   .save-btn {

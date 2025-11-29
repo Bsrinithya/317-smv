@@ -4,7 +4,7 @@ import Dashboard from "./components/Dashboard";
 import ProductCard from "./components/ProductCard";
 import Cart from "./components/Cart";
 import Feedback from "./components/Feedback";
-import Address from "./components/Address";   // ⬅ NEW IMPORT
+import Address from "./components/Address";   // <-- Address included
 
 import "./App.css";
 
@@ -24,7 +24,6 @@ function App() {
     { id: 6, name: "Kalamkari Cotton Fabric", price: 700, img: "Ikat dress.png" },
   ];
 
-  // Signup
   const handleSignup = (email, password) => {
     if (users.find((u) => u.email === email)) return false;
     setUsers([...users, { email, password }]);
@@ -32,7 +31,6 @@ function App() {
     return true;
   };
 
-  // Login
   const handleLogin = (email, password) => {
     const user = users.find((u) => u.email === email && u.password === password);
     if (user) {
@@ -55,14 +53,12 @@ function App() {
     p.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  // 🟥 LOGIN / SIGNUP
   if (!currentUser) {
     return (
       <>
         {page === "signup" ? (
           <div className="card" style={{ maxWidth: "500px", padding: "40px 30px", margin: "50px auto" }}>
             <h2 style={{ fontSize: "28px", marginBottom: "20px" }}>Signup</h2>
-
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -72,30 +68,11 @@ function App() {
                 if (!success) alert("Email already registered!");
               }}
             >
-              <input type="email" name="email" placeholder="Enter your email" required
-                style={{ width: "90%", padding: "16px", marginBottom: "20px", borderRadius: "10px" }}
-              />
-
-              <input type="password" name="password" placeholder="Enter your password" required
-                style={{ width: "90%", padding: "16px", marginBottom: "20px", borderRadius: "10px" }}
-              />
-
-              <button
-                type="submit"
-                style={{
-                  width: "95%", padding: "20px", backgroundColor: "#8b0000",
-                  color: "#fff", borderRadius: "10px", cursor: "pointer"
-                }}
-              >
-                Signup
-              </button>
+              <input type="email" name="email" placeholder="Enter your email" required />
+              <input type="password" name="password" placeholder="Enter your password" required />
+              <button type="submit">Signup</button>
             </form>
-
-            <p onClick={() => setPage("login")}
-              style={{ marginTop: "20px", cursor: "pointer" }}
-            >
-              Already have an account? Login
-            </p>
+            <p onClick={() => setPage("login")}>Already have an account? Login</p>
           </div>
         ) : (
           <div className="card" style={{ maxWidth: "500px", padding: "40px 30px", margin: "50px auto" }}>
@@ -109,37 +86,17 @@ function App() {
                 if (!success) alert("Invalid email or password!");
               }}
             >
-              <input type="email" name="email" placeholder="Enter your email" required
-                style={{ width: "90%", padding: "16px", marginBottom: "20px", borderRadius: "10px" }}
-              />
-
-              <input type="password" name="password" placeholder="Enter your password" required
-                style={{ width: "90%", padding: "16px", marginBottom: "20px", borderRadius: "10px" }}
-              />
-
-              <button
-                type="submit"
-                style={{
-                  width: "95%", padding: "20px", backgroundColor: "#8b0000",
-                  color: "#fff", borderRadius: "10px", cursor: "pointer"
-                }}
-              >
-                Login
-              </button>
+              <input type="email" name="email" placeholder="Enter your email" required />
+              <input type="password" name="password" placeholder="Enter your password" required />
+              <button type="submit">Login</button>
             </form>
-
-            <p onClick={() => setPage("signup")}
-              style={{ marginTop: "20px", cursor: "pointer" }}
-            >
-              Don't have an account? Signup
-            </p>
+            <p onClick={() => setPage("signup")}>Don't have an account? Signup</p>
           </div>
         )}
       </>
     );
   }
 
-  // 🟩 AFTER LOGIN
   return (
     <div>
       <Header
@@ -165,7 +122,7 @@ function App() {
 
       {page === "feedback" && <Feedback />}
 
-      {/* 🟦 NEW ADDRESS PAGE */}
+      {/* NEW ADDRESS PAGE */}
       {page === "address" && <Address />}
     </div>
   );
