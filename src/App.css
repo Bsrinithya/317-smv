@@ -2,6 +2,20 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: #fff8f0;
+   /* Center entire page */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.app-container {
+  width: 100%;
+  max-width: 1200px; /* keeps dashboard centered */
 }
 
 .product-grid {
