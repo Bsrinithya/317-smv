@@ -24,7 +24,7 @@ function Header({ currentUser, setPage, handleLogout, cartCount, search, setSear
             <button onClick={() => setPage("address")}>Address</button>
             <button onClick={() => setPage("feedback")}>Feedback</button>
 
-            {/* NEW CAMERA BUTTON */}
+            {/* FIXED CAMERA BUTTON */}
             <button onClick={() => setPage("camera")}>Camera</button>
 
             <button onClick={handleLogout}>Logout</button>

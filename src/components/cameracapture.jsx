@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import "./CameraCapture.css";
 
-export default function CameraCapture() {
+function CameraCapture() {
   const videoRef = useRef(null);
   const photoRef = useRef(null);
   const [streaming, setStreaming] = useState(false);
@@ -49,3 +49,4 @@ export default function CameraCapture() {
     </div>
   );
 }
+export default CameraCapture;

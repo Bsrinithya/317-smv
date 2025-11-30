@@ -4,14 +4,15 @@ import Dashboard from "./components/Dashboard";
 import ProductCard from "./components/ProductCard";
 import Cart from "./components/Cart";
 import Feedback from "./components/Feedback";
-import Address from "./components/Address";   // <-- Address included
+import Address from "./components/Address";
+import CameraCapture from "./components/CameraCapture"; // FIXED IMPORT
 
 import "./App.css";
 
 function App() {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-  const [page, setPage] = useState("signup"); 
+  const [page, setPage] = useState("signup");
   const [cart, setCart] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -121,9 +122,10 @@ function App() {
       )}
 
       {page === "feedback" && <Feedback />}
-
-      {/* NEW ADDRESS PAGE */}
       {page === "address" && <Address />}
+
+      {/* FIXED CAMERA PAGE */}
+      {page === "camera" && <CameraCapture />}
     </div>
   );
 }
